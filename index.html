@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Download 100+ Python Interview Questions — a practical ebook with clear explanations, coding concepts, and interview preparation.">
+  <meta name="keywords" content="Python interview questions, Python ebook, Python interview preparation, coding interview, Python questions">
+  <meta name="theme-color" content="#0b0b0f">
+  <title>100+ Python Interview Questions | Ebook</title>
+  <style>
+    :root {
+      --bg: #08090d;
+      --surface: #101218;
+      --surface-2: #151821;
+      --text: #f7f8fa;
+      --muted: #9ca3af;
+      --border: rgba(255,255,255,.09);
+      --blue: #35a7ff;
+      --blue-2: #6c63ff;
+      --radius: 22px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(53,167,255,.15), transparent 34%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(100% - 32px, var(--max)); margin: auto; }
+
+    header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(8,9,13,.72);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      height: 68px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.02em; }
+    .brand-mark {
+      width: 32px; height: 32px; border-radius: 9px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--blue), var(--blue-2));
+      font-size: 15px;
+    }
+    .nav-link { display: none; color: #c9cdd5; font-size: 14px; }
+
+    .hero { padding: 58px 0 72px; }
+    .hero-grid { display: grid; gap: 42px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 11px; border: 1px solid var(--border);
+      border-radius: 999px; color: #b9dfff; background: rgba(53,167,255,.06);
+      font-size: 12px; font-weight: 700; letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 12px var(--blue); }
+    h1 {
+      margin-top: 18px; font-size: clamp(42px, 11vw, 76px);
+      line-height: .98; letter-spacing: -.055em; max-width: 760px;
+    }
+    h1 span {
+      background: linear-gradient(90deg, #fff, #7fc9ff);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero-copy { margin-top: 20px; max-width: 620px; color: var(--muted); font-size: 17px; }
+    .actions { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
+    .btn {
+      min-height: 52px; padding: 0 20px; border-radius: 14px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      border: 1px solid var(--border); font-weight: 750; transition: .2s ease;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #269cf5, #5f63ff);
+      box-shadow: 0 12px 35px rgba(48,132,255,.22);
+    }
+    .btn-secondary { background: rgba(255,255,255,.03); color: #d9dde5; }
+    .btn:hover { transform: translateY(-2px); }
+    .trust { margin-top: 16px; font-size: 12px; color: #737985; }
+
+    .cover-wrap { display: grid; place-items: center; }
+    .cover {
+      width: min(78vw, 420px); border-radius: 8px;
+      box-shadow: 0 35px 90px rgba(0,0,0,.65), 0 0 60px rgba(53,167,255,.08);
+      border: 1px solid rgba(255,255,255,.08);
+      transform: rotate(1deg);
+    }
+
+    section { padding: 76px 0; }
+    .section-head { max-width: 650px; margin-bottom: 30px; }
+    .section-kicker { color: #70bfff; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+    h2 { margin-top: 8px; font-size: clamp(30px, 6vw, 48px); letter-spacing: -.04em; line-height: 1.05; }
+    .section-desc { margin-top: 12px; color: var(--muted); }
+
+    .cards { display: grid; gap: 14px; }
+    .card {
+      padding: 23px; border: 1px solid var(--border); border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+    }
+    .icon {
+      width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center;
+      background: rgba(53,167,255,.1); color: #69bbff; margin-bottom: 18px; font-size: 19px;
+    }
+    .card h3 { font-size: 18px; margin-bottom: 7px; }
+    .card p { color: var(--muted); font-size: 14px; }
+
+    .download-box {
+      position: relative; overflow: hidden;
+      padding: 30px 22px; border: 1px solid rgba(92,156,255,.22);
+      border-radius: 28px; background:
+        radial-gradient(circle at 90% 20%, rgba(108,99,255,.22), transparent 30%),
+        radial-gradient(circle at 10% 100%, rgba(53,167,255,.14), transparent 35%),
+        var(--surface);
+    }
+    .download-box p { color: var(--muted); max-width: 650px; margin: 12px 0 24px; }
+    .stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-top: 24px; }
+    .stat { padding: 14px; border: 1px solid var(--border); border-radius: 14px; background: rgba(255,255,255,.025); }
+    .stat strong { display: block; font-size: 20px; }
+    .stat span { color: #858b96; font-size: 12px; }
+
+    footer { padding: 32px 0; border-top: 1px solid var(--border); color: #707580; font-size: 13px; }
+    .footer-inner { display: flex; flex-direction: column; gap: 8px; }
+
+    @media (min-width: 700px) {
+      .container { width: min(100% - 48px, var(--max)); }
+      .nav-link { display: block; }
+      .actions { flex-direction: row; }
+      .btn { width: auto; }
+      .hero { padding: 88px 0 100px; }
+      .hero-grid { grid-template-columns: 1.08fr .92fr; gap: 70px; }
+      .cover { width: min(100%, 430px); }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .stats { grid-template-columns: repeat(4, 1fr); }
+      .download-box { padding: 48px; }
+      .footer-inner { flex-direction: row; justify-content: space-between; }
+    }
+
+    @media (min-width: 980px) {
+      .cards { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand"><span class="brand-mark">Py</span> Python Interview Guide</a>
+      <a class="nav-link" href="#download">Get the ebook ↓</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Interview preparation ebook</div>
+          <h1>100+ <span>Python Interview Questions</span></h1>
+          <p class="hero-copy">
+            A focused collection of Python interview questions designed to help you
+            revise core concepts, understand common problems, and prepare with confidence.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="100-python-interview-questions.pdf" download>
+              ↓ Download Ebook
+            </a>
+            <a class="btn btn-secondary" href="#inside">See what's inside</a>
+          </div>
+          <p class="trust">PDF • Instant download • No signup required</p>
+        </div>
+
+        <div class="cover-wrap">
+          <img class="cover" src="assets/cover.png" alt="100+ Python Interview Questions ebook cover">
+        </div>
+      </div>
+    </section>
+
+    <section id="inside">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Inside the ebook</div>
+          <h2>Everything you need for focused Python revision.</h2>
+          <p class="section-desc">Simple, practical, and organized so you can spend less time searching and more time preparing.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon">&lt;/&gt;</div>
+            <h3>100+ Questions</h3>
+            <p>Work through a broad set of Python interview questions from fundamentals to more advanced concepts.</p>
+          </article>
+          <article class="card">
+            <div class="icon">✦</div>
+            <h3>Clear Explanations</h3>
+            <p>Review concepts in straightforward language instead of getting lost in unnecessary theory.</p>
+          </article>
+          <article class="card">
+            <div class="icon">⌘</div>
+            <h3>Practical Focus</h3>
+            <p>Use coding-oriented questions to strengthen your understanding of how Python works in practice.</p>
+          </article>
+          <article class="card">
+            <div class="icon">✓</div>
+            <h3>Interview Ready</h3>
+            <p>Use the collection as a quick revision guide before technical interviews and assessments.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="download">
+      <div class="container">
+        <div class="download-box">
+          <div class="section-kicker">Ready to prepare?</div>
+          <h2>Download the Python interview guide.</h2>
+          <p>Get the complete PDF directly. No account, registration, or complicated checkout flow.</p>
+          <a class="btn btn-primary" href="100-python-interview-questions.pdf" download>
+            ↓ Download 100+ Python Interview Questions
+          </a>
+
+          <div class="stats">
+            <div class="stat"><strong>100+</strong><span>Interview questions</span></div>
+            <div class="stat"><strong>PDF</strong><span>Easy to read</span></div>
+            <div class="stat"><strong>0</strong><span>Signup required</span></div>
+            <div class="stat"><strong>∞</strong><span>Use for revision</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 Python Interview Guide</span>
+      <span>Built for focused interview preparation.</span>
+    </div>
+  </footer>
+</body>
+</html>
